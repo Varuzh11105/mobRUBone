@@ -257,6 +257,24 @@ export const IconBowl = (p: P) => (
   </svg>
 );
 
+export const IconBolt = (p: P) => (
+  <svg {...base(p)}>
+    <path d="M13 2.5 5.5 13H11l-1 8.5L17.5 11H12l1-8.5Z" fill="currentColor" fillOpacity="0.16" />
+  </svg>
+);
+
+export const IconArrowUpRight = (p: P) => (
+  <svg {...base(p)} strokeWidth={2}>
+    <path d="M7 17 17 7M9 7h8v8" />
+  </svg>
+);
+
+export const IconRub = (p: P) => (
+  <svg {...base(p)}>
+    <path d="M9 20V4h4.2a4.3 4.3 0 0 1 0 8.6H7.5M7.5 16h6.5" />
+  </svg>
+);
+
 export const CATEGORY_ICONS: Record<string, (p: P) => JSX.Element> = {
   treatment: IconMedical,
   animals: IconPaw,

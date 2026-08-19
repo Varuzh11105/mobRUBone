@@ -25,7 +25,13 @@ export const useToast = () => useContext(TCtx);
 
 let toastId = 0;
 
-export function ToastProvider({ children }: { children: ReactNode }) {
+export function ToastProvider({
+  children,
+  containerClass = "fixed inset-x-4 bottom-5",
+}: {
+  children: ReactNode;
+  containerClass?: string;
+}) {
   const [toasts, setToasts] = useState<Toast[]>([]);
 
   const toast = (text: string, kind: Toast["kind"] = "ok") => {
@@ -37,7 +43,7 @@ export function ToastProvider({ children }: { children: ReactNode }) {
   return (
     <TCtx.Provider value={{ toast }}>
       {children}
-      <div className="pointer-events-none absolute inset-x-4 bottom-24 z-[70] flex flex-col items-center gap-2">
+      <div className={`pointer-events-none z-[70] flex flex-col items-center gap-2 ${containerClass}`}>
         {toasts.map((t) => (
           <div
             key={t.id}
@@ -129,6 +135,29 @@ export function ProgressBar({
       </div>
     </div>
   );
+}
+
+/* ================= useInView ================= */
+
+export function useInView<T extends HTMLElement>(threshold = 0.2) {
+  const ref = useRef<T>(null);
+  const [inView, setInView] = useState(false);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setInView(true);
+          io.disconnect();
+        }
+      },
+      { threshold }
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, [threshold]);
+  return { ref, inView };
 }
 
 /* ================= Reveal on scroll ================= */
