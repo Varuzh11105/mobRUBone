@@ -112,7 +112,7 @@ function FeaturedCard({ fund, onOpen }: { fund: Fund; onOpen: () => void }) {
             <span className="truncate text-[12px] font-semibold text-ink-soft">{fund.author}</span>
             {fund.verified && <IconVerified className="h-4 w-4 shrink-0 text-pine-600" />}
           </span>
-          <span className="press flex items-center gap-1.5 rounded-full bg-coral-500 px-4 py-2 text-[12.5px] font-bold text-paper shadow-[0_8px_20px_-8px_rgba(244,81,44,0.7)]">
+          <span className="press flex items-center gap-1.5 rounded-full bg-coral-500 px-4 py-2 text-[12.5px] font-bold text-paper shadow-[0_8px_20px_-8px_rgba(33,160,56,0.7)]">
             Помочь
             <IconArrowR className="h-3.5 w-3.5" />
           </span>

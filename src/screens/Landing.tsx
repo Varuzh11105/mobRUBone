@@ -115,7 +115,7 @@ function Header() {
         </nav>
         <button
           onClick={() => go("#/app")}
-          className="press flex items-center gap-2 rounded-full bg-coral-500 px-4.5 py-2.5 font-display text-[12.5px] font-bold text-paper shadow-[0_14px_28px_-12px_rgba(244,81,44,0.7)] transition-shadow hover:shadow-[0_18px_34px_-10px_rgba(244,81,44,0.8)]"
+          className="press flex items-center gap-2 rounded-full bg-coral-500 px-4.5 py-2.5 font-display text-[12.5px] font-bold text-paper shadow-[0_14px_28px_-12px_rgba(33,160,56,0.7)] transition-shadow hover:shadow-[0_18px_34px_-10px_rgba(33,160,56,0.8)]"
         >
           Открыть приложение
           <IconArrowUpRight className="h-3.5 w-3.5" />
@@ -133,11 +133,11 @@ function OrbitBadge() {
         <defs>
           <path id="orbit-circ" d="M60,60 m-45,0 a45,45 0 1,1 90,0 a45,45 0 1,1 -90,0" fill="none" />
         </defs>
-        <text className="font-display" fontSize="10.5" fontWeight="700" letterSpacing="2.5" fill="rgba(22,36,29,0.55)">
+        <text className="font-display" fontSize="10.5" fontWeight="700" letterSpacing="2.5" fill="rgba(28,33,38,0.55)">
           <textPath href="#orbit-circ">ЛЕПТА · ДОБРО · ЛЕПТА · ДОБРО ·</textPath>
         </text>
       </svg>
-      <span className="grid h-14 w-14 place-items-center rounded-full bg-coral-500 text-paper shadow-[0_14px_30px_-10px_rgba(244,81,44,0.7)]">
+      <span className="grid h-14 w-14 place-items-center rounded-full bg-coral-500 text-paper shadow-[0_14px_30px_-10px_rgba(33,160,56,0.7)]">
         <IconHeart className="h-6 w-6" />
       </span>
     </div>
@@ -222,7 +222,7 @@ function Hero() {
               <span className="relative inline-block text-coral-500">
                 по лепте.
                 <svg className="absolute -bottom-2 left-0 w-full" viewBox="0 0 220 12" fill="none" preserveAspectRatio="none">
-                  <path d="M3 9c40-5 140-7 214-4" stroke="#f5a623" strokeWidth="5" strokeLinecap="round" />
+                  <path d="M3 9c40-5 140-7 214-4" stroke="#f2e913" strokeWidth="5" strokeLinecap="round" />
                 </svg>
               </span>
             </h1>
@@ -418,7 +418,7 @@ function HowItWorks() {
               <li key={s.title} className={`flex gap-6 py-8 ${i > 0 ? "border-t border-line/80" : "pt-0"}`}>
                 <span
                   className="font-display select-none text-[44px] font-black leading-none"
-                  style={{ WebkitTextStroke: "1.5px rgba(22,36,29,0.28)", color: "transparent" }}
+                  style={{ WebkitTextStroke: "1.5px rgba(28,33,38,0.28)", color: "transparent" }}
                 >
                   0{i + 1}
                 </span>
@@ -659,11 +659,11 @@ function Receipt() {
 
       <svg viewBox="0 0 120 26" className="mx-auto mt-6 h-9 w-[190px]">
         {BARCODE.map((w, i) => {
-          const rect = <rect key={i} x={x} y="0" width={w} height="20" fill="#16241d" />;
+          const rect = <rect key={i} x={x} y="0" width={w} height="20" fill="#1c2126" />;
           x += w + 1.6;
           return rect;
         })}
-        <text x="60" y="25.5" textAnchor="middle" fontSize="5" fontWeight="700" fill="#55655b" letterSpacing="2">
+        <text x="60" y="25.5" textAnchor="middle" fontSize="5" fontWeight="700" fill="#5a6470" letterSpacing="2">
           СПАСИБО ЗА ЛЕПТУ
         </text>
       </svg>
@@ -1122,9 +1122,9 @@ function StoreBadge({ store }: { store: "apple" | "google" }) {
         </svg>
       ) : (
         <svg viewBox="0 0 24 24" className="h-6.5 w-6.5" fill="none">
-          <path d="M4 3.5v17l9-8.5-9-8.5Z" fill="#f5a623" />
+          <path d="M4 3.5v17l9-8.5-9-8.5Z" fill="#f2e913" />
           <path d="M4 3.5 16.5 10 13 12 4 3.5Z" fill="#2e9e6b" />
-          <path d="M4 20.5 16.5 14 13 12 4 20.5Z" fill="#f4512c" />
+          <path d="M4 20.5 16.5 14 13 12 4 20.5Z" fill="#21a038" />
           <path d="M16.5 10 20 12l-3.5 2L13 12l3.5-2Z" fill="#ffc95e" />
         </svg>
       )}

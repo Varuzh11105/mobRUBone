@@ -58,13 +58,13 @@ export interface TickerEvent {
 }
 
 export const CATEGORIES: Category[] = [
-  { id: "treatment", label: "Лечение", hue: "#f4512c", hue2: "#ffc95e" },
-  { id: "animals", label: "Животные", hue: "#1e6b57", hue2: "#ffc95e" },
-  { id: "elderly", label: "Пожилые", hue: "#8a5a2b", hue2: "#ffe4dc" },
-  { id: "kids", label: "Дети", hue: "#f5a623", hue2: "#f4512c" },
-  { id: "disaster", label: "Беда в дом", hue: "#b3402a", hue2: "#17594a" },
-  { id: "sport", label: "Спорт и жизнь", hue: "#17594a", hue2: "#2e9e6b" },
-  { id: "other", label: "Другое", hue: "#55655b", hue2: "#dce9e1" },
+  { id: "treatment", label: "Лечение", hue: "#21a038", hue2: "#f2e913" },
+  { id: "animals", label: "Животные", hue: "#17802c", hue2: "#f7ef4a" },
+  { id: "elderly", label: "Пожилые", hue: "#7a8f3d", hue2: "#f2e913" },
+  { id: "kids", label: "Дети", hue: "#f2e913", hue2: "#21a038" },
+  { id: "disaster", label: "Беда в дом", hue: "#e0492f", hue2: "#f2e913" },
+  { id: "sport", label: "Спорт и жизнь", hue: "#0e9b5c", hue2: "#f7ef4a" },
+  { id: "other", label: "Другое", hue: "#5a6470", hue2: "#dcf2e2" },
 ];
 
 export const catById = (id: CategoryId) =>
@@ -88,7 +88,7 @@ export const SEED_FUNDS: Fund[] = [
     createdAt: now - 26 * day,
     daysLeft: 24,
     verified: true,
-    cover: "https://image.qwenlm.ai/generated-images/8c4c7107-b315-4ec6-83f5-a4b4915d55c6/_result.png",
+    cover: "https://image.qwenlm.ai/generated-images/d89aae7c-770b-4ccb-8bb4-a3d61bf31aac/_result.png",
     updates: [
       { date: "3 февраля", text: "Собрали 65%! Врачи подтвердили дату госпитализации — 28 февраля." },
       { date: "20 января", text: "Прошли повторное УЗИ. Хирург говорит, что оперировать можно уже сейчас." },
@@ -127,7 +127,7 @@ export const SEED_FUNDS: Fund[] = [
     createdAt: now - 9 * day,
     daysLeft: 11,
     verified: false,
-    cover: "https://image.qwenlm.ai/generated-images/fd3a885d-842c-4f69-a8bf-32b546d42a56/_result.png",
+    cover: "https://image.qwenlm.ai/generated-images/2a463c7c-4a37-4405-a38e-6a25e17dc94c/_result.png",
     updates: [
       { date: "1 февраля", text: "Дедушка передаёт спасибо! Посмотрел список имён жертвователей и прослезился." },
     ],
@@ -146,7 +146,7 @@ export const SEED_FUNDS: Fund[] = [
     createdAt: now - 6 * day,
     daysLeft: 9,
     verified: true,
-    cover: "https://image.qwenlm.ai/generated-images/837ef4d4-b2ee-4756-9ff4-f608ebebe984/_result.png",
+    cover: "https://image.qwenlm.ai/generated-images/f248fde7-f89e-4028-a8d3-cebfb0afbf0e/_result.png",
     updates: [
       { date: "4 февраля", text: "Выбрали рюкзаки — каждый сам, как хотел. Марфа взяла с единорогом, конечно." },
     ],
@@ -165,7 +165,7 @@ export const SEED_FUNDS: Fund[] = [
     createdAt: now - 16 * day,
     daysLeft: 30,
     verified: true,
-    cover: "https://image.qwenlm.ai/generated-images/17583989-de9b-46de-96fc-86fc2a2bb2e1/_result.png",
+    cover: "https://image.qwenlm.ai/generated-images/29b8fe8c-7201-4770-9f64-077754dff4ad/_result.png",
     updates: [
       { date: "6 февраля", text: "Разобрали пепелище, завезли брус. Бригада начнёт сруб на следующей неделе." },
       { date: "25 января", text: "Спасибо за 300 тысяч за неделю! Семья просила передать: «Мы в долгу не останемся»." },

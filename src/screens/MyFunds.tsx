@@ -145,7 +145,7 @@ export function MyFundsScreen({
             </p>
             <button
               onClick={onCreate}
-              className="press relative mx-auto mt-5 flex items-center gap-2 rounded-full bg-coral-500 px-6 py-3 font-display text-[13px] font-bold text-paper shadow-[0_14px_30px_-10px_rgba(244,81,44,0.6)]"
+              className="press relative mx-auto mt-5 flex items-center gap-2 rounded-full bg-coral-500 px-6 py-3 font-display text-[13px] font-bold text-paper shadow-[0_14px_30px_-10px_rgba(33,160,56,0.6)]"
             >
               Создать первый сбор
               <IconArrowR className="h-4 w-4" />

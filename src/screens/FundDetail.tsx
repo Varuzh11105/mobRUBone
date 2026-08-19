@@ -62,7 +62,7 @@ function QrMock({ seed }: { seed: string }) {
       <rect width={N} height={N} fill="#fbfcf9" />
       {cells.map((row, y) =>
         row.map((on, x) =>
-          on ? <rect key={`${x}-${y}`} x={x} y={y} width={1.02} height={1.02} fill="#0d251d" /> : null
+          on ? <rect key={`${x}-${y}`} x={x} y={y} width={1.02} height={1.02} fill="#1c2126" /> : null
         )
       )}
     </svg>
@@ -80,7 +80,7 @@ function HeartBurst() {
         dur: 1.1 + Math.random() * 0.8,
         size: 14 + Math.random() * 18,
         rot: -30 + Math.random() * 60,
-        color: ["#f4512c", "#ffc95e", "#2e9e6b", "#ff6a45"][i % 4],
+        color: ["#21a038", "#f2e913", "#0e9b5c", "#3cbb57"][i % 4],
       })),
     []
   );
@@ -404,7 +404,7 @@ function DonateSheet({ fund, onClose }: { fund: Fund; onClose: () => void }) {
                   <button
                     onClick={() => (step === "amount" ? setStep("method") : pay())}
                     disabled={!finalAmount || finalAmount < 10}
-                    className="press relative w-full overflow-hidden rounded-2xl bg-coral-500 py-4 font-display text-[14.5px] font-bold text-paper shadow-[0_14px_30px_-10px_rgba(244,81,44,0.65)] transition-opacity disabled:opacity-40"
+                    className="press relative w-full overflow-hidden rounded-2xl bg-coral-500 py-4 font-display text-[14.5px] font-bold text-paper shadow-[0_14px_30px_-10px_rgba(33,160,56,0.65)] transition-opacity disabled:opacity-40"
                   >
                     {step === "amount" ? "Продолжить" : `Пожертвовать ${money(finalAmount || 0)}`}
                   </button>
@@ -603,7 +603,7 @@ export function FundDetailScreen({ fundId, onClose }: { fundId: string; onClose:
           ) : (
             <button
               onClick={() => setDonating(true)}
-              className="press flex h-[52px] flex-1 items-center justify-center gap-2.5 rounded-2xl bg-coral-500 font-display text-[14.5px] font-bold text-paper shadow-[0_16px_34px_-12px_rgba(244,81,44,0.75)] transition-transform hover:scale-[1.01]"
+              className="press flex h-[52px] flex-1 items-center justify-center gap-2.5 rounded-2xl bg-coral-500 font-display text-[14.5px] font-bold text-paper shadow-[0_16px_34px_-12px_rgba(33,160,56,0.75)] transition-transform hover:scale-[1.01]"
             >
               <IconWallet className="h-5 w-5" />
               Пожертвовать

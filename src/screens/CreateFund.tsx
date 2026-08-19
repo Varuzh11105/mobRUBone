@@ -333,7 +333,7 @@ export function CreateFundScreen({
         )}
         <button
           onClick={step === 3 ? publish : next}
-          className="press flex w-full items-center justify-center gap-2 rounded-2xl bg-coral-500 py-4 font-display text-[14.5px] font-bold text-paper shadow-[0_14px_30px_-10px_rgba(244,81,44,0.65)]"
+          className="press flex w-full items-center justify-center gap-2 rounded-2xl bg-coral-500 py-4 font-display text-[14.5px] font-bold text-paper shadow-[0_14px_30px_-10px_rgba(33,160,56,0.65)]"
         >
           {step === 3 ? "Опубликовать сбор" : "Дальше"}
           <IconArrowR className="h-4.5 w-4.5" />

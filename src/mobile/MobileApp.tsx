@@ -130,7 +130,7 @@ export function MobileAppShell({
             <button
               onClick={openCreate}
               aria-label="Создать сбор"
-              className="press relative z-10 grid h-14 w-14 place-items-center rounded-full bg-coral-500 text-paper shadow-[0_18px_36px_-12px_rgba(244,81,44,0.8)]"
+              className="press relative z-10 grid h-14 w-14 place-items-center rounded-full bg-coral-500 text-paper shadow-[0_18px_36px_-12px_rgba(33,160,56,0.8)]"
             >
               <IconPlus className="h-6 w-6" />
             </button>
