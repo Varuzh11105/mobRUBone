@@ -82,6 +82,7 @@ function TickerBar() {
 const NAV = [
   { label: "Как это работает", href: "#how" },
   { label: "Сборам", href: "#funds" },
+  { label: "Истории", href: "#stories" },
   { label: "Прозрачность", href: "#trust" },
   { label: "Вопросы", href: "#faq" },
 ];
@@ -858,11 +859,15 @@ function Footer() {
               Малая лепта — большая помощь. Платформа, где помогают напрямую: без комиссий, с отчётами
               и человеческими историями.
             </p>
+            <div className="mt-6 flex flex-wrap gap-2.5">
+              <StoreBadge store="apple" />
+              <StoreBadge store="google" />
+            </div>
             <button
               onClick={() => go("#/app")}
-              className="press mt-6 inline-flex items-center gap-2 rounded-full bg-coral-500 px-5.5 py-3 font-display text-[12.5px] font-bold text-paper shadow-card"
+              className="press mt-4 inline-flex items-center gap-2 rounded-full bg-coral-500 px-5.5 py-3 font-display text-[12.5px] font-bold text-paper shadow-card transition-colors hover:bg-coral-600"
             >
-              Открыть приложение
+              Открыть веб-версию
               <IconArrowUpRight className="h-3.5 w-3.5" />
             </button>
           </div>
@@ -913,6 +918,228 @@ function Footer() {
   );
 }
 
+/* ---------- бегущая строка-разделитель ---------- */
+function MarqueeDivider() {
+  return (
+    <div className="marquee overflow-hidden border-y-2 border-ink bg-amber-500 py-3.5">
+      <div className="marquee-track">
+        {Array.from({ length: 6 }).map((_, i) => (
+          <span
+            key={i}
+            className="font-display mx-6 flex shrink-0 items-center gap-6 text-[15px] font-extrabold uppercase tracking-[0.14em] text-ink"
+          >
+            Малая лепта — большая помощь
+            <IconHeart className="h-4 w-4 text-coral-600" />
+            Помогают напрямую
+            <IconHeart className="h-4 w-4 text-coral-600" />
+            0% комиссии
+            <IconHeart className="h-4 w-4 text-coral-600" />
+          </span>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+/* ---------- истории, которые сбылись ---------- */
+const STORIES = [
+  {
+    id: "st1",
+    category: "treatment" as const,
+    tag: "Лечение",
+    title: "Протез для Дани",
+    person: "Марина, сестра",
+    quote:
+      "Сбор закрыли за 12 дней. Даня уже ходит без костылей, а через месяц возвращается в свою футбольную секцию. Мы до сих пор не верим.",
+    raised: 740000,
+    donors: 862,
+    meta: "12 дней · закрыт с отчётом",
+  },
+  {
+    id: "st2",
+    category: "disaster" as const,
+    tag: "Беда в дом",
+    title: "Дом для Соловьёвых",
+    person: "Пётр, отец семейства",
+    quote:
+      "После пожара мы остались в чём стояли. Через Лепту собрали на новый сруб, а соседи помогли с бригадой. К зиме заехали в тёплый дом.",
+    raised: 1300000,
+    donors: 1204,
+    meta: "3 недели · закрыт с отчётом",
+  },
+  {
+    id: "st3",
+    category: "animals" as const,
+    tag: "Животные",
+    title: "Отопление для приюта «Лада»",
+    person: "Вера, волонтёр",
+    quote:
+      "Сорок собак и двенадцать кошек встретили морозы в тепле. Каждый жертвователь получил фотоотчёт — люди плакали от счастья вместе с нами.",
+    raised: 260000,
+    donors: 517,
+    meta: "9 дней · закрыт с отчётом",
+  },
+];
+
+function StoriesSection() {
+  return (
+    <section id="stories" className="relative overflow-hidden bg-paper py-20 lg:py-28">
+      <div className="pointer-events-none absolute -right-32 top-0 h-96 w-96 rounded-full bg-mint-100/60" />
+      <div className="mx-auto max-w-6xl px-5 lg:px-8">
+        <div className="flex flex-wrap items-end justify-between gap-5">
+          <Reveal>
+            <div>
+              <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-mint-500">уже помогли</p>
+              <h2 className="font-display mt-4 text-[30px] font-extrabold leading-tight tracking-tight text-ink sm:text-[38px]">
+                Истории, которые
+                <br />
+                сбылись
+              </h2>
+            </div>
+          </Reveal>
+          <Reveal delay={120}>
+            <p className="max-w-[320px] text-[13.5px] leading-relaxed text-ink-soft">
+              Каждый закрытый сбор заканчивается отчётом. Вот лишь несколько историй, за которыми стоят
+              тысячи ваших лепт.
+            </p>
+          </Reveal>
+        </div>
+
+        <div className="mt-11 grid gap-6 md:grid-cols-3">
+          {STORIES.map((s, i) => (
+            <Reveal key={s.id} delay={i * 110}>
+              <article className="group flex h-full flex-col overflow-hidden rounded-[24px] border border-line/80 bg-mist shadow-card transition-all duration-300 hover:-translate-y-1.5 hover:shadow-float">
+                <div className="relative h-40 overflow-hidden">
+                  <CoverImage
+                    fund={{ id: s.id, category: s.category, title: s.title } as never}
+                    className="h-full w-full transition-transform duration-500 group-hover:scale-[1.06]"
+                  />
+                  <span className="absolute left-3.5 top-3.5 rounded-full bg-mint-500 px-3 py-1 text-[10.5px] font-bold text-paper shadow-card">
+                    ✓ {s.meta}
+                  </span>
+                </div>
+                <div className="flex flex-1 flex-col p-5.5">
+                  <div className="flex items-center justify-between gap-2">
+                    <h3 className="font-display text-[16px] font-bold leading-snug text-ink">{s.title}</h3>
+                    <span className="font-display shrink-0 text-[14px] font-extrabold text-mint-500">
+                      {money(s.raised)}
+                    </span>
+                  </div>
+                  <p className="mt-3 flex-1 border-l-[3px] border-coral-500 pl-3.5 text-[13px] leading-relaxed text-ink-soft">
+                    «{s.quote}»
+                  </p>
+                  <div className="mt-4.5 flex items-center gap-2.5 border-t border-line/80 pt-4">
+                    <Avatar name={s.person} size={32} />
+                    <div className="min-w-0">
+                      <p className="truncate text-[12.5px] font-bold text-ink">{s.person}</p>
+                      <p className="text-[10.5px] font-semibold text-ink-soft">
+                        {num(s.donors)} {plural(s.donors, "человек", "человека", "человек")} помогли
+                      </p>
+                    </div>
+                    <IconHeart className="ml-auto h-4.5 w-4.5 shrink-0 text-coral-500 transition-transform group-hover:scale-125" />
+                  </div>
+                </div>
+              </article>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ---------- голоса ---------- */
+const VOICES = [
+  {
+    name: "Анна Ковалёва",
+    role: "жертвует каждый месяц",
+    text: "Мне нравится видеть вживую, как копится сбор. Вношу по 300–500 рублей, и это правда складывается в чью-то операцию.",
+    tone: "coral" as const,
+  },
+  {
+    name: "Дмитрий Соколов",
+    role: "собрал на лечение мамы",
+    text: "Боялся просить. Но когда за первые сутки пришло 40 тысяч от незнакомых людей — понял, что люди хотят помогать.",
+    tone: "pine" as const,
+  },
+  {
+    name: "Ольга Мирная",
+    role: "волонтёр-модератор",
+    text: "Проверяю документы сборов на лечение. Это кропотливо, но именно так рождается доверие — а без него ничего не работает.",
+    tone: "amber" as const,
+  },
+];
+
+function VoicesSection() {
+  const tones = {
+    coral: "border-coral-500/40",
+    pine: "border-pine-600/40",
+    amber: "border-amber-500/50",
+  } as const;
+  return (
+    <section className="relative overflow-hidden bg-mist py-20 lg:py-26">
+      <div className="mx-auto max-w-6xl px-5 lg:px-8">
+        <Reveal>
+          <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-coral-600">живые слова</p>
+          <h2 className="font-display mt-4 text-[30px] font-extrabold tracking-tight text-ink sm:text-[38px]">
+            Что говорят участники
+          </h2>
+        </Reveal>
+        <div className="mt-10 grid gap-5 md:grid-cols-3">
+          {VOICES.map((v, i) => (
+            <Reveal key={v.name} delay={i * 100}>
+              <figure
+                className={`flex h-full flex-col rounded-[22px] border-t-4 bg-paper p-6 shadow-card transition-transform duration-300 hover:-translate-y-1 ${tones[v.tone]}`}
+              >
+                <IconSpark className="h-5 w-5 text-amber-500" />
+                <blockquote className="mt-4 flex-1 text-[14px] leading-relaxed text-ink">«{v.text}»</blockquote>
+                <figcaption className="mt-5 flex items-center gap-3 border-t border-line/80 pt-4">
+                  <Avatar name={v.name} size={38} />
+                  <div>
+                    <p className="font-display text-[13px] font-bold text-ink">{v.name}</p>
+                    <p className="text-[11px] font-semibold text-ink-soft">{v.role}</p>
+                  </div>
+                </figcaption>
+              </figure>
+            </Reveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ---------- бейджи магазинов ---------- */
+function StoreBadge({ store }: { store: "apple" | "google" }) {
+  return (
+    <button
+      onClick={() => go("#/app")}
+      className="press flex items-center gap-3 rounded-xl border border-white/15 bg-white/5 px-4 py-2.5 text-left transition-colors hover:border-amber-300/50 hover:bg-white/10"
+    >
+      {store === "apple" ? (
+        <svg viewBox="0 0 24 24" className="h-7 w-7 text-paper" fill="currentColor">
+          <path d="M17.05 20.28c-.98.95-2.05.86-3.08.38-1.09-.5-2.08-.53-3.24 0-1.44.66-2.2.47-3.06-.38C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.53 4.08zM12.03 7.25c-.15-2.23 1.66-4.07 3.74-4.25.29 2.58-2.34 4.5-3.74 4.25z" />
+        </svg>
+      ) : (
+        <svg viewBox="0 0 24 24" className="h-6.5 w-6.5" fill="none">
+          <path d="M4 3.5v17l9-8.5-9-8.5Z" fill="#f5a623" />
+          <path d="M4 3.5 16.5 10 13 12 4 3.5Z" fill="#2e9e6b" />
+          <path d="M4 20.5 16.5 14 13 12 4 20.5Z" fill="#f4512c" />
+          <path d="M16.5 10 20 12l-3.5 2L13 12l3.5-2Z" fill="#ffc95e" />
+        </svg>
+      )}
+      <span>
+        <span className="block text-[9px] font-semibold uppercase tracking-wide text-mist/55">
+          {store === "apple" ? "Загрузите в" : "Доступно в"}
+        </span>
+        <span className="font-display block text-[13.5px] font-bold leading-tight text-paper">
+          {store === "apple" ? "App Store" : "Google Play"}
+        </span>
+      </span>
+    </button>
+  );
+}
+
 /* ---------- страница целиком ---------- */
 export function Landing() {
   return (
@@ -922,10 +1149,13 @@ export function Landing() {
         <Header />
         <main>
           <Hero />
+          <MarqueeDivider />
           <HowItWorks />
           <LiveFunds />
+          <StoriesSection />
           <StatStrip />
           <Trust />
+          <VoicesSection />
           <CollectCta />
           <FaqSection />
         </main>
